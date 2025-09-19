@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Mesa de Centro Moderna",
+    "price": 89900,
+    "oldPrice": 109900,
+    "level": "A",
+    "dimensions": "120cm × 60cm × 45cm",
+    "img": "img/mesa.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Estantería Modular",
+    "price": 129900,
+    "oldPrice": 149900,
+    "level": "B",
+    "dimensions": "180cm × 40cm × 30cm",
+    "img": "img/estanteria.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Escritorio Ejecutivo",
+    "price": 189900,
+    "oldPrice": 219900,
+    "level": "C",
+    "dimensions": "160cm × 80cm × 75cm",
+    "img": "img/escritorio.jpg"
+  }
+]

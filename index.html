@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muebles AAA Premium | Arma tu propio mueble</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        .hero-video {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .difficulty-badge {
+            font-size: 0.65rem;
+            letter-spacing: 0.05em;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <img src="img/logo.png" alt="Muebles Premium" class="h-52 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#catalogo" class="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-indigo-500 text-sm font-medium">Catálogo</a>
+                    <a href="#como-funciona" class="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Cómo Funciona</a>
+                    <a href="#niveles" class="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Niveles</a>
+                    <a href="#comunidad" class="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Comunidad</a>
+                    <a href="#contacto" class="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Contacto</a>
+                </div>
+                <div class="flex items-center">
+                    <a href="#" class="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <i data-feather="shopping-cart" class="mr-2"></i> Carrito
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="hero-banner" class="pt-24 pb-12 md:pt-32 md:pb-20 bg-indigo-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 lg:gap-8 items-center">
+            <!-- Texto izquierda -->
+            <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left" data-aos="fade-right">
+                <h1 class="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
+                    Arma tu propio <span class="text-indigo-200">mueble premium</span>
+                </h1>
+                <p class="mt-4 text-lg text-indigo-100">
+                    Como un rompecabezas de diseño. Recibe el kit completo en tu casa y sigue nuestra guía paso a paso.
+                </p>
+                <a href="#catalogo" class="mt-6 inline-flex items-center px-6 py-3 text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50">
+                    Ver Catálogo <i data-feather="arrow-right" class="ml-2"></i>
+                </a>
+            </div>
+            <!-- Banner derecha -->
+            <div class="lg:col-span-6 flex justify-center mt-10 lg:mt-0" data-aos="fade-left">
+                <img src="img/banner.png" alt="Banner Muebles" class="rounded-lg shadow-lg max-h-80 object-cover">
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Catalog -->
+    <section id="catalogo" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Nuestros Muebles Premium
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Elige entre nuestras tres opciones de compra
+                </p>
+            </div>
+
+            <div id="catalogo-container" class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                <!-- Product 1 -->
+                <div class="group relative product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="https://static.photos/furniture/640x360/2" alt="Mesa de centro moderna" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Escritorio Gamer
+                                </a>
+                            </h3>
+                            <div class="mt-1 flex items-center">
+                                <span class="difficulty-badge px-2 py-1 rounded-full bg-indigo-100 text-indigo-800 font-semibold uppercase">Nivel A</span>
+                                <span class="ml-2 text-sm text-gray-500">120cm × 60cm × 45cm</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-lg font-medium text-gray-900">$89.900</p>
+                            <p class="text-sm text-gray-500 line-through">$109.900</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid grid-cols-3 gap-2">
+                        <a href="#" class="flex-1 bg-indigo-600 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white text-center hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Armado
+                        </a>
+                        <a href="#" class="flex-1 bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Semiarmado
+                        </a>
+                        <a href="#" class="flex-1 bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Guía
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group relative product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="https://static.photos/furniture/640x360/3" alt="Estantería modular" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Estantería Modular
+                                </a>
+                            </h3>
+                            <div class="mt-1 flex items-center">
+                                <span class="difficulty-badge px-2 py-1 rounded-full bg-yellow-100 text-yellow-800 font-semibold uppercase">Nivel B</span>
+                                <span class="ml-2 text-sm text-gray-500">180cm × 40cm × 30cm</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-lg font-medium text-gray-900">$129.900</p>
+                            <p class="text-sm text-gray-500 line-through">$149.900</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid grid-cols-3 gap-2">
+                        <a href="#" class="flex-1 bg-indigo-600 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white text-center hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Armado
+                        </a>
+                        <a href="#" class="flex-1 bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Semiarmado
+                        </a>
+                        <a href="#" class="flex-1 bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Guía
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group relative product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="https://static.photos/furniture/640x360/4" alt="Escritorio ejecutivo" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Escritorio Ejecutivo
+                                </a>
+                            </h3>
+                            <div class="mt-1 flex items-center">
+                                <span class="difficulty-badge px-2 py-1 rounded-full bg-red-100 text-red-800 font-semibold uppercase">Nivel C</span>
+                                <span class="ml-2 text-sm text-gray-500">160cm × 80cm × 75cm</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-lg font-medium text-gray-900">$189.900</p>
+                            <p class="text-sm text-gray-500 line-through">$219.900</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid grid-cols-3 gap-2">
+                        <a href="#" class="flex-1 bg-indigo-600 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white text-center hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Armado
+                        </a>
+                        <a href="#" class="flex-1 bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Semiarmado
+                        </a>
+                        <a href="#" class="flex-1 bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Guía
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="como-funciona" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Cómo Funciona
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Tres simples pasos para tener tu mueble premium
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+                    <!-- Step 1 -->
+                    <div class="relative" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <span class="text-xl font-bold">1</span>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Elige tu mueble</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Selecciona entre nuestro catálogo de muebles premium y elige la opción que prefieras: armado completo, kit semiarmado o solo la guía digital.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <span class="text-xl font-bold">2</span>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Recibe el kit en tu casa</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Te entregamos todo lo necesario: piezas precortadas, accesorios, herramientas especiales (si las necesitas) y la guía paso a paso.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative" data-aos="fade-up" data-aos-delay="300">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <span class="text-xl font-bold">3</span>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Arma y disfruta</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Sigue nuestras instrucciones claras y visuales. Si tienes dudas, accede a nuestros tutoriales en video o contacta a nuestro equipo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Difficulty Levels -->
+    <section id="niveles" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Niveles de Dificultad
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Elige según tu experiencia y tiempo disponible
+                </p>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Level A -->
+                <div class="bg-white overflow-hidden shadow rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="px-4 py-5 sm:p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                                <i data-feather="smile" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-5 w-0 flex-1">
+                                <h3 class="text-lg font-medium text-gray-900">Nivel A (Fácil)</h3>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-base text-gray-500">
+                                Ideal para principiantes. Piezas grandes con conexiones simples. Tiempo estimado: 1-2 horas.
+                            </p>
+                            <div class="mt-4">
+                                <span class="text-sm font-medium text-gray-500">Ejemplos:</span>
+                                <ul class="mt-2 space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-500">Mesas de centro</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-500">Banquetas</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-500">Repisas simples</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level B -->
+                <div class="bg-white overflow-hidden shadow rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="px-4 py-5 sm:p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                                <i data-feather="meh" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-5 w-0 flex-1">
+                                <h3 class="text-lg font-medium text-gray-900">Nivel B (Intermedio)</h3>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-base text-gray-500">
+                                Para quienes tienen algo de experiencia. Conexiones más complejas. Tiempo estimado: 3-5 horas.
+                            </p>
+                            <div class="mt-4">
+                                <span class="text-sm font-medium text-gray-500">Ejemplos:</span>
+                                <ul class="mt-2 space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-500">Estanterías modulares</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-500">Mesas extensibles</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-500">Muebles con cajones</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level C -->
+                <div class="bg-white overflow-hidden shadow rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="px-4 py-5 sm:p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-red-500 rounded-md p-3">
+                                <i data-feather="frown" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-5 w-0 flex-1">
+                                <h3 class="text-lg font-medium text-gray-900">Nivel C (Avanzado)</h3>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-base text-gray-500">
+                                Para expertos o proyectos desafiantes. Requiere herramientas especiales. Tiempo estimado: 6+ horas.
+                            </p>
+                            <div class="mt-4">
+                                <span class="text-sm font-medium text-gray-500">Ejemplos:</span>
+                                <ul class="mt-2 space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-500">Escritorios ejecutivos</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-500">Bibliotecas complejas</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-500">Muebles con mecanismos</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="comunidad" class="py-12 bg-indigo-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="lg:col-span-6" data-aos="fade-right">
+                    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                        Únete a nuestra comunidad
+                    </h2>
+                    <p class="mt-3 text-lg text-indigo-200">
+                        Comparte tus proyectos, aprende de otros y accede a contenido exclusivo.
+                    </p>
+                    <div class="mt-8 sm:flex">
+                        <div class="rounded-md shadow">
+                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-indigo-50 md:py-4 md:text-lg md:px-10">
+                                Descargar guía de muestra
+                            </a>
+                        </div>
+                        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                                #AAAPremium
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 lg:mt-0 lg:col-span-6" data-aos="fade-left">
+                    <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe class="w-full h-64" src="https://www.youtube.com/embed/example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-medium text-gray-900">Cómo armamos la estantería modular</h3>
+                            <p class="mt-2 text-sm text-gray-500">
+                                Mira nuestro último tutorial en YouTube y únete a los más de 10,000 DIYers en nuestra comunidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Nosotros
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Diseño premium, calidad artesanal, experiencia única
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                    <div class="relative" data-aos="fade-right">
+                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                            <img src="https://static.photos/workspace/640x360/1" alt="Taller de muebles" class="w-full h-full object-center object-cover">
+                        </div>
+                    </div>
+                    <div class="relative" data-aos="fade-left">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Nuestra historia</h3>
+                        <p class="mt-4 text-base text-gray-500">
+                            Fundada en 2018, DIY Premium nació de la pasión por el diseño de muebles y la creencia de que todos deberían poder crear piezas únicas para sus hogares. Combinamos la precisión industrial con el toque artesanal.
+                        </p>
+                        <h3 class="mt-6 text-lg leading-6 font-medium text-gray-900">¿Qué nos diferencia?</h3>
+                        <ul class="mt-4 space-y-3">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="ml-2 text-base text-gray-500">Materiales premium: madera maciza certificada, metales de alta resistencia</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="ml-2 text-base text-gray-500">Precisión milimétrica en cada pieza para un armado perfecto</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="ml-2 text-base text-gray-500">Soporte post-venta y garantía de 2 años en todos nuestros productos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & FAQ -->
+    <section id="contacto" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Contacto
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Estamos aquí para ayudarte en cada paso
+                </p>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
+                <div data-aos="fade-right">
+                    <h3 class="text-lg font-medium text-gray-900">Contáctanos directamente</h3>
+                    <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                        <a href="#" class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                                <i data-feather="message-square" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-base font-medium text-gray-900">WhatsApp</p>
+                                <p class="mt-1 text-sm text-gray-500">+56 9 1234 5678</p>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                                <i data-feather="mail" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-base font-medium text-gray-900">Email</p>
+                                <p class="mt-1 text-sm text-gray-500">hola@diypremium.cl</p>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                                <i data-feather="map-pin" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-base font-medium text-gray-900">Visítanos</p>
+                                <p class="mt-1 text-sm text-gray-500">Av. Providencia 1234, Santiago</p>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                                <i data-feather="clock" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-base font-medium text-gray-900">Horario</p>
+                                <p class="mt-1 text-sm text-gray-500">L-V: 9:00 - 18:00</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-lg font-medium text-gray-900">Síguenos</h3>
+                        <div class="mt-4 flex space-x-6">
+                            <a href="#" class="text-gray-400 hover:text-gray-500">
+                                <i data-feather="instagram" class="h-6 w-6"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-gray-500">
+                                <i data-feather="facebook" class="h-6 w-6"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-gray-500">
+                                <i data-feather="youtube" class="h-6 w-6"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-gray-500">
+                                <i data-feather="twitter" class="h-6 w-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <h3 class="text-lg font-medium text-gray-900">Preguntas frecuentes</h3>
+                    <div class="mt-6 space-y-6">
+                        <div class="border-b border-gray-200 pb-6">
+                            <h4 class="text-base font-medium text-gray-900">¿Hacen delivery?</h4>
+                            <p class="mt-2 text-sm text-gray-500">
+                                Sí, entregamos en todo Chile. En Santiago metropolitano el delivery es gratis para compras sobre $100.000. Para regiones, el costo varía según ubicación.
+                            </p>
+                        </div>
+                        <div class="border-b border-gray-200 pb-6">
+                            <h4 class="text-base font-medium text-gray-900">¿Qué tan difícil es el armado?</h4>
+                            <p class="mt-2 text-sm text-gray-500">
+                                Todos nuestros kits vienen con instrucciones detalladas y clasificadas por nivel de dificultad (A, B o C). El 95% de nuestros clientes logra armarlos sin problemas siguiendo nuestras guías.
+                            </p>
+                        </div>
+                        <div class="border-b border-gray-200 pb-6">
+                            <h4 class="text-base font-medium text-gray-900">¿Qué pasa si no puedo armarlo?</h4>
+                            <p class="mt-2 text-sm text-gray-500">
+                                Ofrecemos soporte técnico por WhatsApp y video llamada. Si aún así tienes problemas, podemos enviar a un técnico por un costo adicional o coordinar la devolución.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-base font-medium text-gray-900">¿Qué herramientas necesito?</h4>
+                            <p class="mt-2 text-sm text-gray-500">
+                                Los kits incluyen todas las herramientas especializadas necesarias. Solo necesitarás herramientas básicas como destornillador y martillo (para niveles A y B). Los kits nivel C incluyen todo lo necesario.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Productos</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Todos los muebles</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Nivel A (Fácil)</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Nivel B (Intermedio)</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Nivel C (Avanzado)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Compañía</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Nosotros</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Trabaja con nosotros</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Prensa</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Recursos</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Guías de armado</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Tutoriales en video</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Comunidad</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Eventos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Política de privacidad</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Términos y condiciones</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Garantías</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Devoluciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-800 pt-8 md:flex md:items-center md:justify-between">
+                <div class="flex space-x-6 md:order-2">
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <i data-feather="instagram" class="h-6 w-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <i data-feather="facebook" class="h-6 w-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <i data-feather="youtube" class="h-6 w-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <i data-feather="twitter" class="h-6 w-6"></i>
+                    </a>
+                </div>
+                <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+                    &copy; 2023 AAA Premium. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize Vanta.js background
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x5e35b1,
+            backgroundColor: 0x111827,
+            size: 1.00
+        });
+
+        // Feather icons
+        feather.replace();
+    </script>
+</body>
+</html>

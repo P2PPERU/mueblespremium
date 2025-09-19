@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Muebles Premium</title>
+  <script src="dashboard.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8 bg-gray-50">
+  <h1 class="text-2xl font-bold mb-4">Panel Administrativo</h1>
+
+  <!-- Formulario -->
+  <form id="productForm" class="space-y-2 mb-6">
+    <input type="text" id="name" placeholder="Nombre" class="border p-2 w-full">
+    <input type="number" id="price" placeholder="Precio" class="border p-2 w-full">
+    <input type="number" id="oldPrice" placeholder="Precio anterior" class="border p-2 w-full">
+    <input type="text" id="level" placeholder="Nivel (A, B, C)" class="border p-2 w-full">
+    <input type="text" id="dimensions" placeholder="Dimensiones" class="border p-2 w-full">
+    <input type="file" id="imgFile" accept="image/*" class="border p-2 w-full">
+    <button class="bg-indigo-600 text-white px-4 py-2 rounded">Agregar producto</button>
+  </form>
+
+  <!-- Lista de productos -->
+  <ul id="productList" class="space-y-2"></ul>
+</body>
+</html>
