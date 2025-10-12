@@ -2,25 +2,354 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin - Muebles Premium</title>
-  <script src="dashboard.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .preview-image {
+      max-width: 200px;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
 </head>
-<body class="p-8 bg-gray-50">
-  <h1 class="text-2xl font-bold mb-4">Panel Administrativo</h1>
+<body class="bg-gray-50 min-h-screen">
+  <div class="max-w-7xl mx-auto p-8">
+    <!-- Header -->
+    <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900">Panel Administrativo</h1>
+          <p class="text-gray-600 mt-1">Gestiona tus productos de muebles</p>
+          <div id="connectionStatus" class="mt-2 flex items-center gap-2">
+            <div class="w-2 h-2 rounded-full bg-gray-400 animate-pulse"></div>
+            <span class="text-sm text-gray-500">Conectando...</span>
+          </div>
+        </div>
+        <a href="../index.html" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+          Ver Tienda
+        </a>
+      </div>
+    </div>
 
-  <!-- Formulario -->
-  <form id="productForm" class="space-y-2 mb-6">
-    <input type="text" id="name" placeholder="Nombre" class="border p-2 w-full">
-    <input type="number" id="price" placeholder="Precio" class="border p-2 w-full">
-    <input type="number" id="oldPrice" placeholder="Precio anterior" class="border p-2 w-full">
-    <input type="text" id="level" placeholder="Nivel (A, B, C)" class="border p-2 w-full">
-    <input type="text" id="dimensions" placeholder="Dimensiones" class="border p-2 w-full">
-    <input type="file" id="imgFile" accept="image/*" class="border p-2 w-full">
-    <button class="bg-indigo-600 text-white px-4 py-2 rounded">Agregar producto</button>
-  </form>
+    <!-- Formulario de producto -->
+    <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Agregar/Editar Producto</h2>
+      
+      <form id="productForm" class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Nombre -->
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+              Nombre del Producto *
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              required
+              placeholder="Ej: Mesa de Centro Moderna"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            >
+          </div>
 
-  <!-- Lista de productos -->
-  <ul id="productList" class="space-y-2"></ul>
+          <!-- Nivel -->
+          <div>
+            <label for="level" class="block text-sm font-medium text-gray-700 mb-1">
+              Nivel de Dificultad *
+            </label>
+            <select 
+              id="level" 
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            >
+              <option value="">Seleccionar nivel</option>
+              <option value="A">A - Fácil (1-2 horas)</option>
+              <option value="B">B - Intermedio (3-5 horas)</option>
+              <option value="C">C - Avanzado (6+ horas)</option>
+            </select>
+          </div>
+
+          <!-- Precio actual (promoción) -->
+          <div>
+            <label for="price" class="block text-sm font-medium text-gray-700 mb-1">
+              Precio Promocional (S/) *
+            </label>
+            <input 
+              type="number" 
+              id="price" 
+              required
+              step="0.01"
+              min="0"
+              placeholder="89.90"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            >
+          </div>
+
+          <!-- Precio anterior -->
+          <div>
+            <label for="oldPrice" class="block text-sm font-medium text-gray-700 mb-1">
+              Precio Anterior (S/) *
+            </label>
+            <input 
+              type="number" 
+              id="oldPrice" 
+              required
+              step="0.01"
+              min="0"
+              placeholder="109.90"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            >
+          </div>
+
+          <!-- Dimensiones -->
+          <div>
+            <label for="dimensions" class="block text-sm font-medium text-gray-700 mb-1">
+              Dimensiones *
+            </label>
+            <input 
+              type="text" 
+              id="dimensions" 
+              required
+              placeholder="120cm × 60cm × 45cm"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            >
+          </div>
+
+          <!-- Imagen -->
+          <div class="md:col-span-2">
+            <label for="imgFile" class="block text-sm font-medium text-gray-700 mb-1">
+              Imágenes del Producto (múltiples)
+            </label>
+            <input 
+              type="file" 
+              id="imgFile" 
+              accept="image/*"
+              multiple
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            >
+            <p class="text-xs text-gray-500 mt-1">Puedes seleccionar múltiples imágenes. La primera será la principal. Formatos: JPG, PNG, WEBP (máx. 5MB cada una)</p>
+          </div>
+        </div>
+
+        <!-- Campos adicionales expandibles -->
+        <div class="border-t pt-4 mt-4">
+          <button type="button" onclick="toggleAdvancedFields()" class="text-indigo-600 hover:text-indigo-700 font-medium text-sm mb-4">
+            + Agregar información adicional
+          </button>
+          
+          <div id="advanced-fields" class="hidden space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Descripción corta -->
+              <div class="md:col-span-2">
+                <label for="shortDescription" class="block text-sm font-medium text-gray-700 mb-1">
+                  Descripción Corta
+                </label>
+                <textarea 
+                  id="shortDescription" 
+                  rows="2"
+                  placeholder="Breve descripción del producto..."
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                ></textarea>
+              </div>
+
+              <!-- Descripción completa -->
+              <div class="md:col-span-2">
+                <label for="description" class="block text-sm font-medium text-gray-700 mb-1">
+                  Descripción Completa
+                </label>
+                <textarea 
+                  id="description" 
+                  rows="6"
+                  placeholder="Descripción detallada del producto..."
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                ></textarea>
+              </div>
+
+              <!-- Material -->
+              <div>
+                <label for="material" class="block text-sm font-medium text-gray-700 mb-1">
+                  Material
+                </label>
+                <input 
+                  type="text" 
+                  id="material" 
+                  placeholder="Ej: Madera MDF + Melanina"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                >
+              </div>
+
+              <!-- Color -->
+              <div>
+                <label for="color" class="block text-sm font-medium text-gray-700 mb-1">
+                  Color
+                </label>
+                <input 
+                  type="text" 
+                  id="color" 
+                  placeholder="Ej: Natural / Blanco"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                >
+              </div>
+
+              <!-- Peso -->
+              <div>
+                <label for="weight" class="block text-sm font-medium text-gray-700 mb-1">
+                  Peso (kg)
+                </label>
+                <input 
+                  type="number" 
+                  id="weight" 
+                  step="0.1"
+                  placeholder="15.5"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                >
+              </div>
+
+              <!-- Stock -->
+              <div>
+                <label for="stock" class="block text-sm font-medium text-gray-700 mb-1">
+                  Stock disponible
+                </label>
+                <input 
+                  type="number" 
+                  id="stock" 
+                  placeholder="10"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                >
+              </div>
+
+              <!-- Tiempo de armado -->
+              <div>
+                <label for="assemblyTime" class="block text-sm font-medium text-gray-700 mb-1">
+                  Tiempo de armado
+                </label>
+                <input 
+                  type="text" 
+                  id="assemblyTime" 
+                  placeholder="1-2 horas"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                >
+              </div>
+
+              <!-- Garantía -->
+              <div>
+                <label for="warranty" class="block text-sm font-medium text-gray-700 mb-1">
+                  Garantía
+                </label>
+                <input 
+                  type="text" 
+                  id="warranty" 
+                  placeholder="2 años"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                >
+              </div>
+
+              <!-- Producto destacado -->
+              <div class="flex items-center">
+                <input 
+                  type="checkbox" 
+                  id="isFeatured" 
+                  class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                >
+                <label for="isFeatured" class="ml-2 block text-sm text-gray-700">
+                  Marcar como producto destacado
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vista previa de imagen -->
+        <div id="imagePreview" class="hidden">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Vista previa:</label>
+          <img id="previewImg" class="preview-image border-2 border-gray-200" alt="Vista previa">
+        </div>
+
+        <!-- Botón submit -->
+        <button 
+          type="submit"
+          class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition focus:ring-4 focus:ring-indigo-300"
+        >
+          Agregar producto
+        </button>
+      </form>
+    </div>
+
+    <!-- Lista de productos -->
+    <div class="bg-white rounded-lg shadow-sm p-6">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Productos Actuales</h2>
+      
+      <ul id="productList" class="space-y-3">
+        <!-- Los productos se cargarán aquí dinámicamente -->
+      </ul>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+  
+  <script>
+    // Toggle campos avanzados
+    function toggleAdvancedFields() {
+      const fields = document.getElementById('advanced-fields');
+      fields.classList.toggle('hidden');
+      event.target.textContent = fields.classList.contains('hidden') 
+        ? '+ Agregar información adicional'
+        : '- Ocultar información adicional';
+    }
+
+    // Preview de imagen al seleccionar archivo
+    document.getElementById('imgFile').addEventListener('change', function(e) {
+      const files = e.target.files;
+      const previewContainer = document.getElementById('imagePreview');
+      
+      if (files.length > 0) {
+        previewContainer.innerHTML = '<label class="block text-sm font-medium text-gray-700 mb-2">Vista previa de imágenes:</label><div class="grid grid-cols-4 gap-2" id="preview-grid"></div>';
+        previewContainer.classList.remove('hidden');
+        
+        const grid = document.getElementById('preview-grid');
+        
+        Array.from(files).forEach((file, index) => {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.className = 'preview-image border-2 border-gray-200 rounded-lg';
+            if (index === 0) {
+              img.classList.add('border-indigo-500');
+              const badge = document.createElement('span');
+              badge.className = 'absolute top-2 left-2 bg-indigo-600 text-white text-xs px-2 py-1 rounded';
+              badge.textContent = 'Principal';
+              const wrapper = document.createElement('div');
+              wrapper.className = 'relative';
+              wrapper.appendChild(img);
+              wrapper.appendChild(badge);
+              grid.appendChild(wrapper);
+            } else {
+              grid.appendChild(img);
+            }
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+    });
+
+    // Calcular descuento automáticamente
+    const priceInput = document.getElementById('price');
+    const oldPriceInput = document.getElementById('oldPrice');
+    
+    function showDiscount() {
+      const price = parseFloat(priceInput.value);
+      const oldPrice = parseFloat(oldPriceInput.value);
+      
+      if (price && oldPrice && price < oldPrice) {
+        const discount = Math.round(((oldPrice - price) / oldPrice) * 100);
+        console.log(`Descuento: ${discount}%`);
+      }
+    }
+    
+    priceInput.addEventListener('input', showDiscount);
+    oldPriceInput.addEventListener('input', showDiscount);
+  </script>
 </body>
 </html>
