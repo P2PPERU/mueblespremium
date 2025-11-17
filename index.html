@@ -43,6 +43,21 @@
             margin: 0;
         }
         input[type="number"] { -moz-appearance: textfield; }
+
+        /* Line clamp utilities */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800">
@@ -219,12 +234,14 @@
     <!-- Products Page -->
     <div id="products-page" class="page pt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="mb-8">
-                <h1 class="text-3xl font-bold text-gray-900 mb-4">Catálogo de Productos</h1>
-                <div class="flex flex-wrap gap-4 items-center">
+            <div class="mb-8" data-aos="fade-up">
+                <h1 class="text-4xl font-bold text-gray-900 mb-2">Catálogo de Productos</h1>
+                <p class="text-lg text-gray-600 mb-6">Explora nuestra colección de muebles premium para armar</p>
+                <div class="bg-white rounded-lg shadow-sm p-4 flex flex-wrap gap-4 items-center">
                     <div class="flex items-center space-x-2">
+                        <i data-feather="filter" class="h-4 w-4 text-gray-600"></i>
                         <label class="text-sm font-medium text-gray-700">Filtrar por nivel:</label>
-                        <select id="level-filter" onchange="filterProducts()" class="border border-gray-300 rounded-md px-3 py-2">
+                        <select id="level-filter" onchange="filterProducts()" class="border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
                             <option value="">Todos</option>
                             <option value="A">Nivel A (Fácil)</option>
                             <option value="B">Nivel B (Intermedio)</option>
@@ -232,8 +249,9 @@
                         </select>
                     </div>
                     <div class="flex items-center space-x-2">
+                        <i data-feather="arrow-up-down" class="h-4 w-4 text-gray-600"></i>
                         <label class="text-sm font-medium text-gray-700">Ordenar por:</label>
-                        <select id="sort-filter" onchange="filterProducts()" class="border border-gray-300 rounded-md px-3 py-2">
+                        <select id="sort-filter" onchange="filterProducts()" class="border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
                             <option value="">Seleccionar</option>
                             <option value="price-low">Precio: Menor a Mayor</option>
                             <option value="price-high">Precio: Mayor a Menor</option>
@@ -251,11 +269,12 @@
     <!-- Gallery Page -->
     <div id="gallery-page" class="page pt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="text-center mb-12">
-                <h1 class="text-3xl font-bold text-gray-900 mb-4">Galería de Proyectos</h1>
-                <p class="text-lg text-gray-600">Mira lo que nuestra comunidad ha creado</p>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Galería de Proyectos</h1>
+                <p class="text-xl text-gray-600 mb-2">Mira lo que nuestra comunidad ha creado</p>
+                <p class="text-sm text-gray-500">Proyectos reales de clientes satisfechos</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-container">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" id="gallery-container">
                 <!-- Galería se cargará aquí -->
             </div>
         </div>
