@@ -355,16 +355,33 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCartUI();
 });
 
-// Cargar productos desde el backend
+// Cargar productos desde el backend o archivo local
 async function loadProductsFromBackend() {
+    try {
+        // Primero intentar cargar desde archivo JSON local
+        console.log('Cargando productos desde archivo local...');
+        const localResponse = await fetch('data/products.json');
+
+        if (localResponse.ok) {
+            products = await localResponse.json();
+            console.log('Productos cargados desde archivo local:', products.length);
+            loadProducts();
+            loadFeaturedProducts();
+            return;
+        }
+    } catch (localError) {
+        console.log('No se pudo cargar desde archivo local, intentando backend...');
+    }
+
+    // Si falla el archivo local, intentar desde backend
     try {
         console.log('Cargando productos desde:', `${API_URL}/products`);
         const response = await fetch(`${API_URL}/products`);
         const result = await response.json();
-        
+
         if (result.success && result.data) {
             products = result.data;
-            console.log('Productos cargados:', products.length);
+            console.log('Productos cargados desde backend:', products.length);
             loadProducts();
             loadFeaturedProducts();
         } else {
@@ -372,7 +389,7 @@ async function loadProductsFromBackend() {
             showEmptyState();
         }
     } catch (error) {
-        console.error('Error cargando productos:', error);
+        console.error('Error cargando productos desde backend:', error);
         showEmptyState();
     }
 }
@@ -472,83 +489,102 @@ function loadFeaturedProducts() {
 
 function createProductCard(product) {
     const card = document.createElement('div');
-    card.className = 'bg-white rounded-xl shadow-lg overflow-hidden product-card cursor-pointer';
-    
+    card.className = 'bg-white rounded-xl shadow-lg overflow-hidden product-card cursor-pointer hover:shadow-2xl transition-shadow';
+
     const levelColors = {
         'A': 'bg-indigo-100 text-indigo-800',
         'B': 'bg-yellow-100 text-yellow-800',
         'C': 'bg-red-100 text-red-800'
     };
-    
-    const discount = Math.round(((product.old_price - product.price) / product.old_price) * 100);
-    
+
+    // Soporte para formato de backend (old_price) y formato local (oldPrice)
+    const oldPrice = product.old_price || product.oldPrice || product.price * 1.2;
+    const imgUrl = product.img_url || product.img || '';
+    const discount = Math.round(((oldPrice - product.price) / oldPrice) * 100);
+
     card.innerHTML = `
-        <div class="aspect-w-16 aspect-h-12 bg-gray-200">
-            <img src="${getImageUrl(product.img_url)}" alt="${product.name}" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/400x300?text=Sin+Imagen'">
+        <div class="aspect-w-16 aspect-h-12 bg-gray-200 relative overflow-hidden">
+            <img src="${getImageUrl(imgUrl)}" alt="${product.name}" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x300?text=Sin+Imagen'">
+            ${discount > 0 ? `<div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">-${discount}%</div>` : ''}
         </div>
         <div class="p-6">
             <div class="flex items-start justify-between mb-2">
-                <h3 class="text-lg font-semibold text-gray-900">${product.name}</h3>
-                <span class="difficulty-badge px-2 py-1 rounded-full ${levelColors[product.level]} font-semibold text-xs">
-                    Nivel ${product.level}
+                <h3 class="text-lg font-semibold text-gray-900 line-clamp-2">${product.name}</h3>
+                <span class="difficulty-badge px-2 py-1 rounded-full ${levelColors[product.level]} font-semibold text-xs ml-2 flex-shrink-0">
+                    ${product.level}
                 </span>
             </div>
-            <p class="text-sm text-gray-500 mb-3">${product.dimensions}</p>
+            ${product.category ? `<p class="text-xs text-indigo-600 font-medium mb-1">${product.category}</p>` : ''}
+            <p class="text-sm text-gray-500 mb-3 flex items-center gap-1">
+                <i data-feather="maximize" class="h-3 w-3"></i>
+                ${product.dimensions}
+            </p>
+            ${product.material ? `<p class="text-xs text-gray-600 mb-3 flex items-center gap-1">
+                <i data-feather="box" class="h-3 w-3"></i>
+                ${product.material}
+            </p>` : ''}
             <div class="flex items-end justify-between mb-4">
                 <div>
-                    <span class="text-2xl font-bold text-gray-900">${formatCurrency(product.price)}</span>
-                    <span class="text-sm text-gray-500 line-through ml-2">${formatCurrency(product.old_price)}</span>
+                    <span class="text-2xl font-bold text-gray-900">${formatCurrency(product.price / 100)}</span>
+                    ${discount > 0 ? `<span class="text-sm text-gray-500 line-through ml-2">${formatCurrency(oldPrice / 100)}</span>` : ''}
                 </div>
-                <span class="text-sm text-green-600 font-medium">${discount}% OFF</span>
             </div>
-            <button onclick="addToCart(${product.id})" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors">
+            <button onclick="addToCart(${product.id})" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
+                <i data-feather="shopping-cart" class="h-4 w-4"></i>
                 Agregar al Carrito
             </button>
         </div>
     `;
-    
+
     card.addEventListener('click', (e) => {
         if (!e.target.closest('button')) {
             openProductModal(product.id);
         }
     });
-    
+
     return card;
 }
 
 function createFeaturedProductCard(product) {
     const card = document.createElement('div');
-    card.className = 'bg-white rounded-xl shadow-lg overflow-hidden product-card cursor-pointer group';
-    
-    const discount = Math.round(((product.old_price - product.price) / product.old_price) * 100);
-    
+    card.className = 'bg-white rounded-xl shadow-lg overflow-hidden product-card cursor-pointer group hover:shadow-2xl transition-all';
+
+    // Soporte para formato de backend (old_price) y formato local (oldPrice)
+    const oldPrice = product.old_price || product.oldPrice || product.price * 1.2;
+    const imgUrl = product.img_url || product.img || '';
+    const discount = Math.round(((oldPrice - product.price) / oldPrice) * 100);
+
     card.innerHTML = `
-        <div class="relative">
-            <img src="${getImageUrl(product.img_url)}" alt="${product.name}" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x300?text=Sin+Imagen'">
+        <div class="relative overflow-hidden">
+            <img src="${getImageUrl(imgUrl)}" alt="${product.name}" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400x300?text=Sin+Imagen'">
             <div class="absolute top-4 right-4">
                 <span class="difficulty-badge px-3 py-1 rounded-full bg-white text-indigo-800 font-semibold text-xs shadow-lg">
                     Nivel ${product.level}
                 </span>
             </div>
+            ${discount > 0 ? `<div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">-${discount}%</div>` : ''}
         </div>
         <div class="p-6">
             <h3 class="text-xl font-semibold text-gray-900 mb-2">${product.name}</h3>
-            <p class="text-gray-600 mb-4">${product.dimensions}</p>
+            ${product.category ? `<p class="text-sm text-indigo-600 font-medium mb-2">${product.category}</p>` : ''}
+            ${product.description ? `<p class="text-sm text-gray-600 mb-3 line-clamp-2">${product.description}</p>` : ''}
+            <p class="text-sm text-gray-600 mb-4 flex items-center gap-1">
+                <i data-feather="maximize" class="h-3 w-3"></i>
+                ${product.dimensions}
+            </p>
             <div class="flex items-center justify-between mb-4">
-                <div class="flex items-baseline">
-                    <span class="text-2xl font-bold text-gray-900">${formatCurrency(product.price)}</span>
-                    <span class="text-lg text-gray-500 line-through ml-2">${formatCurrency(product.old_price)}</span>
-                </div>
-                <div class="text-right">
-                    <span class="text-sm text-green-600 font-medium">${discount}% OFF</span>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-bold text-gray-900">${formatCurrency(product.price / 100)}</span>
+                    ${discount > 0 ? `<span class="text-sm text-gray-500 line-through">${formatCurrency(oldPrice / 100)}</span>` : ''}
                 </div>
             </div>
-            <button onclick="openProductModal(${product.id})" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors font-medium">
+            <button onclick="openProductModal(${product.id})" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors font-medium flex items-center justify-center gap-2">
+                <i data-feather="eye" class="h-4 w-4"></i>
                 Ver Producto
             </button>
         </div>
     `;
-    
+
     return card;
 }
 
@@ -823,61 +859,61 @@ function filterProducts() {
 }
 
 // Cargar galería
-function loadGallery() {
+async function loadGallery() {
     const container = document.getElementById('gallery-container');
     if (!container) return;
-    
-    const galleryImages = [
-        {
-            url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-            title: "Escritorio Gamer Pro",
-            user: "María García",
-            location: "Lima, Perú"
-        },
-        {
-            url: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-            title: "Estantería Nordic",
-            user: "Carlos Mendoza",
-            location: "Arequipa, Perú"
-        },
-        {
-            url: "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-            title: "Mesa de Centro",
-            user: "Ana López",
-            location: "Cusco, Perú"
-        },
-        {
-            url: "https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-            title: "Biblioteca Modular",
-            user: "Pedro Quispe",
-            location: "Trujillo, Perú"
-        },
-        {
-            url: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-            title: "Escritorio Ejecutivo",
-            user: "Laura Rosales",
-            location: "Piura, Perú"
-        },
-        {
-            url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-            title: "Mesa de Trabajo",
-            user: "Diego Castro",
-            location: "Iquitos, Perú"
-        }
-    ];
 
-    container.innerHTML = galleryImages.map(item => `
-        <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
-            <img src="${item.url}" alt="${item.title}" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div class="absolute bottom-4 left-4 text-white">
-                    <h3 class="font-semibold">${item.title}</h3>
-                    <p class="text-sm opacity-90">Por ${item.user}</p>
-                    <p class="text-xs opacity-75">${item.location}</p>
+    try {
+        const response = await fetch('data/gallery.json');
+        const galleryProjects = await response.json();
+
+        container.innerHTML = galleryProjects.map(project => `
+            <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300">
+                <img src="${project.image}" alt="${project.title}" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/800x600?text=Proyecto'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <div class="mb-2">
+                            <span class="inline-block bg-indigo-600 px-3 py-1 rounded-full text-xs font-semibold mb-2">${project.category}</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2">${project.title}</h3>
+                        <p class="text-sm opacity-90 mb-2">${project.description}</p>
+                        <div class="flex items-center justify-between text-xs opacity-75">
+                            <div class="flex items-center gap-2">
+                                <i data-feather="user" class="h-4 w-4"></i>
+                                <span>${project.client}</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-feather="map-pin" class="h-4 w-4"></i>
+                                <span>${project.location}</span>
+                            </div>
+                        </div>
+                        ${project.products && project.products.length > 0 ? `
+                            <div class="mt-3 pt-3 border-t border-white/20">
+                                <p class="text-xs font-semibold mb-1">Productos usados:</p>
+                                <div class="flex flex-wrap gap-1">
+                                    ${project.products.slice(0, 3).map(prod => `
+                                        <span class="bg-white/20 px-2 py-1 rounded text-xs">${prod}</span>
+                                    `).join('')}
+                                    ${project.products.length > 3 ? `<span class="text-xs opacity-75">+${project.products.length - 3} más</span>` : ''}
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
+
+        feather.replace();
+    } catch (error) {
+        console.error('Error cargando galería:', error);
+        container.innerHTML = `
+            <div class="col-span-full text-center py-12">
+                <i data-feather="alert-circle" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
+                <p class="text-gray-500">Error al cargar la galería de proyectos</p>
+            </div>
+        `;
+        feather.replace();
+    }
 }
 
 // Cargar tutoriales

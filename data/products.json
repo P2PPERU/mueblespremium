@@ -6,7 +6,10 @@
     "oldPrice": 109900,
     "level": "A",
     "dimensions": "120cm × 60cm × 45cm",
-    "img": "img/mesa.jpg"
+    "category": "Mesas",
+    "material": "MDF Enchapado en Roble",
+    "img": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=600",
+    "description": "Mesa de centro moderna con acabado en roble. Perfecta para espacios contemporáneos."
   },
   {
     "id": 2,
@@ -15,7 +18,10 @@
     "oldPrice": 149900,
     "level": "B",
     "dimensions": "180cm × 40cm × 30cm",
-    "img": "img/estanteria.jpg"
+    "category": "Estanterías",
+    "material": "Pino Macizo",
+    "img": "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=600",
+    "description": "Estantería modular versátil que se adapta a cualquier espacio. Sistema de ensamblaje fácil."
   },
   {
     "id": 3,
@@ -24,6 +30,189 @@
     "oldPrice": 219900,
     "level": "C",
     "dimensions": "160cm × 80cm × 75cm",
-    "img": "img/escritorio.jpg"
+    "category": "Escritorios",
+    "material": "Melamina Premium",
+    "img": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600",
+    "description": "Escritorio ejecutivo amplio con cajones laterales. Ideal para home office."
+  },
+  {
+    "id": 4,
+    "name": "Silla Ergonómica Office",
+    "price": 149900,
+    "oldPrice": 179900,
+    "level": "A",
+    "dimensions": "60cm × 60cm × 120cm",
+    "category": "Sillas",
+    "material": "Metal y Textil",
+    "img": "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=600",
+    "description": "Silla ergonómica con soporte lumbar ajustable. Máximo confort para largas jornadas."
+  },
+  {
+    "id": 5,
+    "name": "Cama Queen con Cabecera",
+    "price": 299900,
+    "oldPrice": 349900,
+    "level": "C",
+    "dimensions": "200cm × 160cm × 120cm",
+    "category": "Dormitorio",
+    "material": "MDF Laqueado",
+    "img": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600",
+    "description": "Cama queen size con elegante cabecera acolchada. Incluye somier de listones."
+  },
+  {
+    "id": 6,
+    "name": "Librero Escandinavo",
+    "price": 119900,
+    "oldPrice": 139900,
+    "level": "A",
+    "dimensions": "150cm × 30cm × 180cm",
+    "category": "Estanterías",
+    "material": "Pino Blanco",
+    "img": "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=600",
+    "description": "Librero estilo escandinavo de líneas minimalistas. Perfecto para organizar libros."
+  },
+  {
+    "id": 7,
+    "name": "Mueble TV Flotante",
+    "price": 169900,
+    "oldPrice": 199900,
+    "level": "B",
+    "dimensions": "180cm × 40cm × 50cm",
+    "category": "Muebles TV",
+    "material": "MDF Laqueado",
+    "img": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600",
+    "description": "Mueble para TV de instalación flotante. Diseño moderno con compartimentos."
+  },
+  {
+    "id": 8,
+    "name": "Cómoda 6 Cajones",
+    "price": 179900,
+    "oldPrice": 209900,
+    "level": "B",
+    "dimensions": "100cm × 45cm × 120cm",
+    "category": "Dormitorio",
+    "material": "Roble Natural",
+    "img": "https://images.unsplash.com/photo-1556228578-dd6a8f574e97?w=600",
+    "description": "Cómoda con 6 cajones amplios. Sistema de rieles suaves para apertura silenciosa."
+  },
+  {
+    "id": 9,
+    "name": "Mesa Comedor 6 Puestos",
+    "price": 349900,
+    "oldPrice": 399900,
+    "level": "C",
+    "dimensions": "180cm × 90cm × 75cm",
+    "category": "Mesas",
+    "material": "Roble Macizo",
+    "img": "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600",
+    "description": "Mesa de comedor robusta para 6 personas. Acabado en roble macizo."
+  },
+  {
+    "id": 10,
+    "name": "Rack Organizador Entrada",
+    "price": 79900,
+    "oldPrice": 99900,
+    "level": "A",
+    "dimensions": "80cm × 30cm × 180cm",
+    "category": "Organizadores",
+    "material": "Metal Negro",
+    "img": "https://images.unsplash.com/photo-1604480133435-4b9434d0b71d?w=600",
+    "description": "Perchero organizador para entrada. Incluye ganchos y estante superior."
+  },
+  {
+    "id": 11,
+    "name": "Sofá Modular 3 Cuerpos",
+    "price": 499900,
+    "oldPrice": 599900,
+    "level": "C",
+    "dimensions": "220cm × 90cm × 85cm",
+    "category": "Salas",
+    "material": "Estructura Madera + Tapiz",
+    "img": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600",
+    "description": "Sofá modular de 3 cuerpos con tapizado premium. Cojines incluidos."
+  },
+  {
+    "id": 12,
+    "name": "Mesa Lateral Nórdica",
+    "price": 69900,
+    "oldPrice": 89900,
+    "level": "A",
+    "dimensions": "45cm × 45cm × 55cm",
+    "category": "Mesas",
+    "material": "Roble + Metal",
+    "img": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600",
+    "description": "Mesa lateral de estilo nórdico. Ideal como auxiliar de sofá o cama."
+  },
+  {
+    "id": 13,
+    "name": "Closet 4 Puertas",
+    "price": 399900,
+    "oldPrice": 469900,
+    "level": "C",
+    "dimensions": "200cm × 60cm × 220cm",
+    "category": "Dormitorio",
+    "material": "MDF Enchapado",
+    "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600",
+    "description": "Closet amplio de 4 puertas con barral y estantes internos. Gran capacidad."
+  },
+  {
+    "id": 14,
+    "name": "Banco Tapizado Pie de Cama",
+    "price": 99900,
+    "oldPrice": 119900,
+    "level": "A",
+    "dimensions": "120cm × 40cm × 45cm",
+    "category": "Dormitorio",
+    "material": "Pino + Tapiz",
+    "img": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600",
+    "description": "Banco tapizado ideal para pie de cama. Con compartimento interno."
+  },
+  {
+    "id": 15,
+    "name": "Escritorio Esquinero",
+    "price": 159900,
+    "oldPrice": 189900,
+    "level": "B",
+    "dimensions": "140cm × 140cm × 75cm",
+    "category": "Escritorios",
+    "material": "Melamina",
+    "img": "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=600",
+    "description": "Escritorio en L para aprovechar esquinas. Ideal para espacios reducidos."
+  },
+  {
+    "id": 16,
+    "name": "Estante Flotante Triple",
+    "price": 59900,
+    "oldPrice": 79900,
+    "level": "A",
+    "dimensions": "90cm × 20cm × 15cm",
+    "category": "Estanterías",
+    "material": "MDF Laqueado",
+    "img": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600",
+    "description": "Set de 3 estantes flotantes. Fácil instalación con soportes invisibles."
+  },
+  {
+    "id": 17,
+    "name": "Silla Comedor Tapizada",
+    "price": 89900,
+    "oldPrice": 109900,
+    "level": "A",
+    "dimensions": "45cm × 50cm × 95cm",
+    "category": "Sillas",
+    "material": "Madera + Tapiz",
+    "img": "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600",
+    "description": "Silla de comedor con respaldo alto tapizado. Patas de madera maciza."
+  },
+  {
+    "id": 18,
+    "name": "Bar/Cantina con Copa Copa",
+    "price": 229900,
+    "oldPrice": 269900,
+    "level": "B",
+    "dimensions": "120cm × 45cm × 140cm",
+    "category": "Salas",
+    "material": "MDF + Vidrio",
+    "img": "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600",
+    "description": "Mueble bar con estantes para botellas y copero. Incluye puerta de vidrio."
   }
 ]

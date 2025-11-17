@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "title": "Living Room Completo - Familia Rodríguez",
+    "client": "María R.",
+    "location": "San Isidro, Lima",
+    "date": "2024-11",
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
+    "description": "Sala de estar completa con sofá modular, mesa de centro y mueble TV. Estilo moderno minimalista.",
+    "products": ["Sofá Modular 3 Cuerpos", "Mesa de Centro Moderna", "Mueble TV Flotante"],
+    "category": "Salas"
+  },
+  {
+    "id": 2,
+    "title": "Home Office Ejecutivo - Estudio Legal",
+    "client": "Carlos M.",
+    "location": "Miraflores, Lima",
+    "date": "2024-10",
+    "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800",
+    "description": "Oficina en casa con escritorio ejecutivo, libreros y silla ergonómica. Acabados premium en roble.",
+    "products": ["Escritorio Ejecutivo", "Librero Escandinavo", "Silla Ergonómica Office"],
+    "category": "Oficinas"
+  },
+  {
+    "id": 3,
+    "title": "Dormitorio Principal - Casa Moderna",
+    "client": "Ana S.",
+    "location": "La Molina, Lima",
+    "date": "2024-11",
+    "image": "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800",
+    "description": "Dormitorio principal completo con cama queen, closet y cómoda. Diseño contemporáneo.",
+    "products": ["Cama Queen con Cabecera", "Closet 4 Puertas", "Cómoda 6 Cajones"],
+    "category": "Dormitorios"
+  },
+  {
+    "id": 4,
+    "title": "Comedor Familiar - Departamento",
+    "client": "Jorge P.",
+    "location": "Surco, Lima",
+    "date": "2024-10",
+    "image": "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800",
+    "description": "Comedor para 6 personas con mesa de roble macizo y sillas tapizadas. Elegante y funcional.",
+    "products": ["Mesa Comedor 6 Puestos", "Silla Comedor Tapizada"],
+    "category": "Comedores"
+  },
+  {
+    "id": 5,
+    "title": "Biblioteca Personal - Coleccionista",
+    "client": "Roberto L.",
+    "location": "Barranco, Lima",
+    "date": "2024-09",
+    "image": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800",
+    "description": "Biblioteca personal con múltiples libreros modulares. Capacidad para más de 500 libros.",
+    "products": ["Librero Escandinavo", "Estantería Modular", "Mesa Lateral Nórdica"],
+    "category": "Estudios"
+  },
+  {
+    "id": 6,
+    "title": "Sala de Entretenimiento",
+    "client": "Patricia G.",
+    "location": "San Borja, Lima",
+    "date": "2024-11",
+    "image": "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800",
+    "description": "Sala de TV con mueble flotante y bar/cantina para reuniones. Ideal para entretener.",
+    "products": ["Mueble TV Flotante", "Bar/Cantina con Copa Copa", "Sofá Modular 3 Cuerpos"],
+    "category": "Entretenimiento"
+  },
+  {
+    "id": 7,
+    "title": "Espacio de Trabajo Compartido",
+    "client": "Startup Tech SAC",
+    "location": "San Isidro, Lima",
+    "date": "2024-10",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+    "description": "Oficina compartida con múltiples escritorios y soluciones de almacenamiento.",
+    "products": ["Escritorio Esquinero", "Estantería Modular", "Silla Ergonómica Office"],
+    "category": "Oficinas"
+  },
+  {
+    "id": 8,
+    "title": "Rincón de Lectura Acogedor",
+    "client": "Elena F.",
+    "location": "Pueblo Libre, Lima",
+    "date": "2024-09",
+    "image": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=800",
+    "description": "Espacio de lectura con libreros y mesa auxiliar. Ambiente cálido y minimalista.",
+    "products": ["Librero Escandinavo", "Mesa Lateral Nórdica", "Banco Tapizado Pie de Cama"],
+    "category": "Espacios Personales"
+  },
+  {
+    "id": 9,
+    "title": "Dormitorio Juvenil",
+    "client": "Familia Torres",
+    "location": "Jesús María, Lima",
+    "date": "2024-11",
+    "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800",
+    "description": "Habitación juvenil con escritorio, estantes y cómoda. Funcional y moderno.",
+    "products": ["Escritorio Esquinero", "Estante Flotante Triple", "Cómoda 6 Cajones"],
+    "category": "Dormitorios"
+  },
+  {
+    "id": 10,
+    "title": "Recibidor con Estilo",
+    "client": "Manuel D.",
+    "location": "Lince, Lima",
+    "date": "2024-10",
+    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800",
+    "description": "Entrada organizada con perchero y mesa lateral. Primera impresión impecable.",
+    "products": ["Rack Organizador Entrada", "Mesa Lateral Nórdica", "Estante Flotante Triple"],
+    "category": "Entrada"
+  },
+  {
+    "id": 11,
+    "title": "Sala Minimalista Escandinava",
+    "client": "Andrea K.",
+    "location": "San Miguel, Lima",
+    "date": "2024-09",
+    "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800",
+    "description": "Sala de estar estilo nórdico con muebles en tonos claros. Ambiente luminoso.",
+    "products": ["Sofá Modular 3 Cuerpos", "Mesa de Centro Moderna", "Estante Flotante Triple"],
+    "category": "Salas"
+  },
+  {
+    "id": 12,
+    "title": "Comedor Íntimo para 4",
+    "client": "Luis y Carmen",
+    "location": "Magdalena, Lima",
+    "date": "2024-11",
+    "image": "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+    "description": "Comedor compacto ideal para parejas. Mesa versátil y sillas cómodas.",
+    "products": ["Mesa de Centro Moderna", "Silla Comedor Tapizada"],
+    "category": "Comedores"
+  }
+]
